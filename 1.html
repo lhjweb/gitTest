@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style></style>
+</head>
+<body>
+  <ul id="box">
+    <li>第一个节点</li>
+    <li>第二个节点</li>
+    <li>第三个节点</li>
+    <li>第四个节点</li>
+  </ul>
+  <script>
+    // var box = document.getElementById('box');
+    // //标准浏览器(非IE6-8)中会把空格和换行当做文本节点处理
+    // console.log(box.childNodes); //NodeList(9) [text, li, text, li, text, li, text, li, text]
+    // //如果只想要元素节点，但是IE6-8下使用children会把注释也当做元素节点
+    // console.log(box.children); 
+    // //获取children指定上下文所有元素的子节点兼容IE6+所有浏览器
+    // function children(context){
+    //   var res = [],nodeList = context.childNodes;
+    //   for(var i = 0;i<nodeList.length;i++){
+    //     var item = nodeList[i];
+    //     item.nodeType === 1 ? res.push(item):null;
+    //   }
+    //   return item;
+    // }
+    // console.log(children(box).length);
+    
+    //去除字符串的前后空格
+  // function trim(str) {
+  //   if (str && typeof str === "string") {
+  //       return str.replace(/^\s+/,"").replace(/\s+$/,""); //去除前后空白符
+  //   }
+  // }
+  // console.log('---'+trim('  jjj  jjj  ')+'----');// console.log('---'+trim('  jjj  jjj  ')+'----');
+   
+
+  //判断一个字符中出现次数最多的字符，且是多少
+    // var str = 'asdfssaaasasasasaa';
+    // var json = {};
+
+    // for (var i = 0; i < str.length; i++) {
+    //   if(!json[str.charAt(i)]){
+    //     console.log(str.charAt(i),json[str.charAt(i)]);
+    //     json[str.charAt(i)] = 1;
+    //   }else{
+    //     json[str.charAt(i)]++;
+    //   }
+    // };
+    // console.log(json);
+    
+    // var iMax = 0;
+    // var iIndex = '';
+    // for(var i in json){
+    // if(json[i]>iMax){
+    // iMax = json[i];
+    // iIndex = i;
+    // }
+    // }
+    // alert('出现次数最多的是:'+iIndex+'出现'+iMax+'次');
+
+    //获取数组之和并除以length
+    // var arr = [1,2,3,4,5]
+    // Array.prototype.average = function () { 
+    //   var sum = 0;
+    //   for(var i = 0 ; i < this.length; i++){
+    //     sum+=this[i];  
+    //   }
+    //   return sum/ this.length; 
+    // }
+    // let avg = arr.average();
+    // console.log(avg)
+    
+
+    //冒泡排序
+    // function bSort(arr) {
+    //   var len = arr.length;
+    //   for (var i = 0; i < len; i++) {
+    //     for (var j = 0; j < len - i; j++) {
+    //         // 相邻元素两两对比，元素交换，大的元素交换到后面
+    //         if (arr[j] > arr[j + 1]) {
+    //             var temp = arr[j];
+    //             arr[j] = arr[j+1];
+    //             arr[j+1] = temp;
+    //         }
+    //     }
+    //   }
+    //   return arr;
+    // }
+
+    // //举个数组
+    // myArr = [20,18,27,19,35];
+    // //使用函数
+    // console.log(  bSort(myArr));
+    
+
+// var arr =[{a:1},{b:2},{c:1}]
+// var obj = {};
+// var sum = arr.reduce(function(prev, cur, index, arr) {
+//     console.log(prev, cur, index);
+//     return prev + cur;
+// })
+// console.log(arr, sum);
+// console.log(obj);
+
+
+// function localScript(url){
+//   var script = document.createElement('script');
+//   script.type = 'text/script';
+//   script.src = url;
+//   document.body.appendChild(script);
+// }
+// console.log(localScript('client.js'));
+
+
+  </script>
+  <script type="text/javascript">
+    // function sayHi(){
+    //   alert('hi');
+    // }
+    // var script = document.createElement('script');
+    // script.type='text/javascript';
+    // script.append(document.createTextNode("function sayHi (){alert('hi');}"))
+    // document.body.appendChild(script);
+    function loadScriptString(code){
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      try{
+        script.appendChild(document.createTextNode(code));
+      }catch(ex){
+        script.text = code;
+      }
+      document.body.appendChild(script);
+    }
+    // 下面是调用这个函数的示例：
+    loadScriptString("function(){clert('hi');}");
+  </script>
+</body>
+</html>
+
